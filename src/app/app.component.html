@@ -1,4 +1,5 @@
 <input (keyup)="changeImage($event)" [value]="imgUrl">
 
-<app-post [postImg]="imgUrl" (imgSelected)="logImg($event)"><p>some caption</p></app-post>
+
+<app-post [postImg]="imgUrl" (imgSelected)="logImg($event)" [test]="appTest"><p>some caption</p></app-post>
 <p>{{title}}</p>

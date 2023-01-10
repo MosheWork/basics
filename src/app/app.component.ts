@@ -17,4 +17,7 @@ export class AppComponent {
   logImg(event: string) {
     console.log(event);
   }
+  //passing value to another component <app-child [test]="appTest"></app-child>
+  // [test] you set it 
+  appTest="test working passing value to post component"
 }
