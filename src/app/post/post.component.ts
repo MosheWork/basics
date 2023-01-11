@@ -32,7 +32,7 @@ export class PostComponent
   @Input() postImg = '';
   @Output() imgSelected = new EventEmitter<string>();
   @Input()
-  test = '';
+  PassingStringPost = '';
 
   constructor() {
     console.log('constructor ()', this.postImg);

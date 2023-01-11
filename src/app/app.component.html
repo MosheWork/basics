@@ -1,6 +1,33 @@
-<input (keyup)="changeImage($event)" [value]="imgUrl" />
+<!-- ng-template hide content  we add ngIf with blueClass event that show when mouse clicked-->
+<ng-template><p>Button is blue.</p></ng-template>
+<p *ngIf="blueClass">*ngIf work</p>
 
-<app-post [postImg]="imgUrl" (imgSelected)="logImg($event)" [test]="appTest"
+<!-- with ngClass u can set css to a class -->
+<button
+  (click)="blueClass = !blueClass"
+  [ngClass]="{ blue: blueClass }"
+  [ngStyle]="{ 'font-size.px': fontSize }"
+>
+  change(ngClass)
+</button>
+<hr />
+<input (keyup)="changeImage($event)" [value]="imgUrl" />
+<app-post
+  (imgSelected)="logImg($event)"
+  [PassingStringPost]="PassingStringApp"
+  [postImg]="imgUrl"
   ><p>some caption</p></app-post
 >
-<p>{{ title }}</p>
+<app-post *ngFor="let image of images; let i = index" [postImg]="image"
+  >image index:{{ i }}</app-post
+>
+<p>{{ title | titlecase }}</p>
+
+<!-- date pipe help formatting a date -->
+<p>date pipe: {{ currentDate | date : "d/M/yy, h:mm a" }}</p>
+<!-- can search for currency code in google iso 4217 -->
+<p>currency pipe: {{ cost | currency : "ILS" }}</p>
+<!-- 2-5 set min 0 after the "." -->
+<P>number pipe: {{ temperature | number : "1.2-5" }}</P>
+<!-- jason pipe use for debugging show json format on webpage -->
+<pre>json pipe: {{ pizza | json }}</pre>
